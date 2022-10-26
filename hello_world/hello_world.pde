@@ -25,10 +25,16 @@ void setup() {
       //Empty ELSE
     }
   }
+  //population
+  center = Width * 1/2 ):
+  centerX = center
+  centerY = center
+  xStart = centerX - (width * 1/4 ):
+  yStart = centerY - (height * 1/4 ):
 } //End setup
 //
 void draw() {
-  ellipse(50, 100, 10, 120);
+  rect(xStart, yStart, widthRect, heightRect);
 } //End draw
 //
 void keyPressed() {
