@@ -1,8 +1,10 @@
 //Global Variables
 int appWidth, appHeight;
 float centerX, centerY, xStart, yStart, widthRect, heightRect;
+color greenNightMode, purpleNightMode;
 color blackNightMode=#000000, green=#a5d158, purple=#FA00F6, white=#FFFFFF; //Hexidecimal
 float thin, normal, thick;
+Boolean nightMode=false, randomBackground=false;
 //
 void setup() {
   //Declaring Display Geometry: landscape, square, portrait
@@ -50,8 +52,8 @@ void draw() {
   //
   //background( blackNightMode );
   strokeWeight( thick );
-  stroke( green ); 
-  fill( purple ); 
+  stroke( green ); //greenNightMode
+  fill( purple );  //purpleNightMode
   rect(xStart, yStart, widthRect, heightRect);
   fill( white ); //default reset
   stroke( blackNightMode ); //default reset
