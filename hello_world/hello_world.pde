@@ -1,10 +1,10 @@
 //Global Variables
 int appWidth, appHeight;
 float centerX, centerY, xStart, yStart, widthRect, heightRect;
-color greenNightMode, purpleNightMode;
-color blackNightMode=#000000, green=#a5d158, purple=#FA00F6, white=#FFFFFF; //Hexidecimal
+color greenNightMode=#a4d100;
+color blackNightMode=#000000, green=#a5d158, orange=#fa9e00, white=#FFFFFF; //Hexidecimal
 float thin, normal, thick;
-Boolean nightMode=false, randomBackground=false;
+Boolean nightMode=false, randomBackground=false, grayScale=false, backgroundColour=false;
 //
 void setup() {
   //Declaring Display Geometry: landscape, square, portrait
@@ -45,15 +45,25 @@ void setup() {
 void draw() {
   // New Background Function "covers" old gray scale background()
   // Night Mode means background cannot have blue // change randome for night mode, hard code "0"
+    if(grayScale == true) background(100); // gray scale (0-255)
   //background(100); //Gray Scale (0-255) & Blue Issue for night mode
   //
   //Casting Reminder
-  background( color( random(0 , 255), random(0 , 255), random(0 , 255) ) ); // Colour without blue
-  //
-  //background( blackNightMode );
+  if(backgroundColour == true)background( color( random(0 , 255), random(0 , 255), random(0 , 255) ) ); // Colour without blue
   strokeWeight( thick );
-  stroke( green ); //greenNightMode
-  fill( purple );  //purpleNightMode
+  if(nightMode == true)
+  {
+    background(blackNightMode);
+    stroke(greenNightMode);
+    fill(orange);
+  } else
+  {
+    stroke(green);
+    fill(orange);
+  }
+  //background( blackNightMode );
+  stroke( greenNightMode ); //greenNightMode
+  fill( orange );  //orangeNightMode
   rect(xStart, yStart, widthRect, heightRect);
   fill( white ); //default reset
   stroke( blackNightMode ); //default reset
@@ -61,6 +71,12 @@ void draw() {
 } //End draw
 //
 void keyPressed() {
+  grayScale=false;
+  backgroundColour=false;
+  nightMode=false;
+  if(key == 'G' || key == 'g') grayScale=true;
+  if(key == 'T' || key == 't') nightMode=true;
+  if(key == 'B' || key == 'b') backgroundColour=true;
 } //End keyPressed
 //
 void mousePressed() {
